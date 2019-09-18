@@ -10,8 +10,8 @@ class MockGoFishClient
   attr_reader :socket
   attr_reader :output
 
-  def initialize(port)
-    @socket = TCPSocket.new('localhost', port)
+  def initialize
+    @socket = TCPSocket.new('localhost', port_number)
   end
 
   def provide_input(text)
@@ -53,36 +53,52 @@ describe 'GameRoom' do
     'localhost'
   end
 
-  # let(:client1) {MockGoFishClient.new(@server.port_number)}
-  # let(:client2) {MockGoFishClient.new(@server.port_number)}
-  # let(:client3) {MockGoFishClient.new(@server.port_number)}
-
-  def initialize_three_players
-    @client1 = MockGoFishClient.new(@server.port_number)
-    @client2 = MockGoFishClient.new(@server.port_number)
-    @client3 = MockGoFishClient.new(@server.port_number)
+  def initialize_new_game
+    @game = GoFishGame.new
+    @game.start
   end
 
-  def clients_enter_ready?(*clients)
-    clients.each {|client| client.provide_input("Ready")}
-    true
+  def initialize_new_room
+    @room = GameRoom.new("Jake")
+    @room
   end
+
+  # let(:client1) {RoomPlayer.new("Jake")}
+  # let(:client2) {RoomPlayer.new("Josh")}
+  # let(:client3) {RoomPlayer.new("Daniel")}
 
   describe '#start_game' do
     it 'starts a game' do
-      initialize_three_players
-      room = GameRoom.new(@clients)
-      clients_enter_ready?(@client1, @client2, @client3)
+      client1 = MockGoFishClient.new
+      client1.provide_input(["Jake"])
+      client1 = RoomPlayer.new(client1.capture_output, client1)
+      client2 = MockGoFishClient.new
+      client2.provide_input(["Josh"])
+      client2 = RoomPlayer.new(client2.capture_output, client2)
+      client3 = MockGoFishClient.new
+      client3.provide_input(["Daniel"])
+      client3 =RoomPlayer.new(client3.capture_output, client3)
+      room = GameRoom.new([client1, client2, client3])
       game = room.start_game
-      expect(game).to eq true
+      expect(game).to_not be_nil
     end
   end
 
-  describe '#players_ready' do
-    it 'returns true when three people all provide the input "Ready' do
-      initialize_three_players
-      room = GameRoom.new(@clients)
-      expect(clients_enter_ready?(@client1, @client2, @client3)).to eq true
+  describe "#assign_players_to_room_players" do
+    it 'returns true if a player and a room player have the same name' do
+      client = MockGoFishClient.new
+      client.provide_input(["Nia"])
+      room_player = RoomPlayer.new(client.capture_output, client)
+      @room = GameRoom.new([room_player])
+      @room.game = GoFishGame.new([room_player])
+      @room.assign_players_to_room_players
+      expect(@room.room_players[0]).to eq @room.game.players[0]
+    end
+  end
+
+  describe '#client_input' do
+    it 'returns string if a given player is the current player' do
+      
     end
   end
   

@@ -1,6 +1,11 @@
-require_relative 'war_socket_server'
-require 'socket'
+require_relative '../lib/game'
 
 server = GoFishServer.new
 server.start
-server.run
+
+loop do
+  server.accept_new_client
+  sleep(1)
+end
+
+#blocking connect

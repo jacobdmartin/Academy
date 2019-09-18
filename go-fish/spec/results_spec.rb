@@ -13,7 +13,7 @@ describe 'GameResults' do
 
   describe '#go_fish' do
     it 'tells a given player to go_fish' do
-      game = GoFishGame.new("Billy", "Joella")
+      game = GoFishGame.new(["Billy", "Joella"])
       game.start
       game.deal_count
       game.deal_cards
@@ -30,7 +30,7 @@ describe 'GameResults' do
     # end
 
     it 'returns a message if a round results in a given player asking for a rank they don\'t have' do
-      game = GoFishGame.new("Andrew", "Garfield")
+      game = GoFishGame.new(["Andrew", "Garfield"])
       result = GameResult.new(game.players[0].name, game.players[1].name, "Ace", game)
       game.players[0].add_cards_to_hand(five_of_clubs, eight_of_diamonds)
       game.players[1].add_cards_to_hand(five_of_spades, queen_of_hearts)
@@ -39,7 +39,7 @@ describe 'GameResults' do
     end
 
     it 'returns a message if a round results in a given player having to go fish' do
-      game = GoFishGame.new("Matt", "Damon")
+      game = GoFishGame.new(["Matt", "Damon"])
       result = GameResult.new(game.players[0].name, game.players[1].name, "8", game)
       game.players[0].add_cards_to_hand(five_of_clubs, eight_of_diamonds)
       game.players[1].add_cards_to_hand(five_of_spades, queen_of_hearts)

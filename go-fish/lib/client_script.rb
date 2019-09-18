@@ -1,17 +1,17 @@
 require 'socket'
 
-s = TCPSocket.new 'localhost', 3336
-s.puts "Game of War Created"
+class GoFishClient
+  s = TCPSocket.new 'localhost', 3336
 
-Thread.new do
-  loop do
-    puts s.gets
+  Thread.new do
+    loop do
+      puts s.gets
+    end
   end
-end
 
-loop do
-  msg = $stdin.gets.chomp
-  s.puts("Ready\n")
+  loop do
+    client_name = $stdin.gets.chomp
+    s.puts("#{client_name}\n")
+  end
+  s.close
 end
-
-s.close

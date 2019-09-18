@@ -4,7 +4,7 @@ require 'pry'
 
 describe 'GoFishGame' do
   def initialize_new_game
-    @game = GoFishGame.new("Hannah", "John", "Abbie")
+    @game = GoFishGame.new(["Hannah", "John", "Abbie"])
     @game.start
   end
 
@@ -33,8 +33,8 @@ describe 'GoFishGame' do
 
   describe '#start' do
     it 'shuffles the deck of cards' do
-      game1 = GoFishGame.new("Bill")
-      game2 = GoFishGame.new("Louis")
+      game1 = GoFishGame.new(["Bill"])
+      game2 = GoFishGame.new(["Louis"])
       game1.start
       expect(game1.card_deck).to_not eq(game2.card_deck)
     end
@@ -42,7 +42,7 @@ describe 'GoFishGame' do
 
   describe '#deal_count' do
     it 'counts number of players in a game' do
-      game = GoFishGame.new("Diana")
+      game = GoFishGame.new(["Diana"])
       game.deal_count
       expect(game.deal_count).to eq 7
     end
@@ -50,7 +50,7 @@ describe 'GoFishGame' do
 
   describe '#add_cards_to_hand' do
     it 'adds two cards to a given players hand' do
-      game = GoFishGame.new("Derrick")
+      game = GoFishGame.new(["Derrick"])
       card1 = PlayingCard.new("Jack", "Hearts")
       card2 = PlayingCard.new("King", "Diamonds")
       game.players[0].add_cards_to_hand(card1, card2)
@@ -60,16 +60,17 @@ describe 'GoFishGame' do
 
   describe '#deal_cards' do
     it 'puts 7 cards into the 2 given players hands' do
-      game = GoFishGame.new("Jim", "Jansen")
+      game = GoFishGame.new(["Jim", "Jansen"])
       game.start
       game.deal_count
       game.deal_cards
       expect(game.players[0].hand.count).to eq 7
+      expect(game.players[1].hand.count).to eq 7
       expect(game.card_deck.cards_left).to eq 38
     end
 
     it 'deals 5 cards into the 3 (or more) given players hands' do
-      game = GoFishGame.new("Juliet", "James", "John")
+      game = GoFishGame.new(["Juliet", "James", "John"])
       game.start
       game.deal_count
       game.deal_cards
@@ -120,7 +121,7 @@ describe 'GoFishGame' do
 
     describe '#advance_player' do
       it 'goes to the next players turn' do
-        game = GoFishGame.new("Billy", "Jamie")
+        game = GoFishGame.new(["Billy", "Jamie"])
         game.start
         expect(game.advance_player).to eq(game.players[1])
       end

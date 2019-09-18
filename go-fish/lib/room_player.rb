@@ -1,16 +1,11 @@
 require_relative '../lib/room'
-class RoomPlayer
-  attr_accessor :player, :name
-  def initialize(name)
-    @name = name
-  end
+require_relative '../lib/server'
+require_relative '../lib/game'
 
-  def assign_clients_to_players
-    game.players.each do |player|
-      room_players.each do |room_player|
-        room_player.player == player.player
-        room_player.player = player if room_player.name == player.name
-      end
-    end
+class RoomPlayer
+  attr_accessor :client, :player, :name
+  def initialize(name, client)
+    @name = name
+    @client = client
   end
 end

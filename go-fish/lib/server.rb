@@ -4,6 +4,7 @@
 
 require_relative '../lib/room'
 require_relative '../lib/room_player'
+require_relative '../lib/game'
 require 'socket'
 require 'pry'
 
@@ -33,12 +34,14 @@ class GoFishServer
   
   def accept_new_client(player_name = "Player")
     client = server.accept_nonblock
-    client.puts "Welcome To The Server"
+    client.puts "Welcome To The Go Fish Game Server"
+    client.puts "Please Enter Your Name:"
+    room_player = RoomPlayer.new(client.gets.chomp, client)
     puts "Client connected"
-    clients_in_lobby.push(client)
+    client.puts "You are connected to the server"
+    clients_in_lobby.push(room_player)
     create_room_if_possible
   rescue IO::WaitReadable, Errno::EINTR
-    accept_new_client
   end
   
   def stop
@@ -50,10 +53,10 @@ class GoFishServer
 
   def create_room_if_possible
     if clients_in_lobby.count == 3
+      room = GameRoom.new(clients_in_lobby)
       puts "Game of Go Fish created in a room with #{clients_in_lobby.count} players!"
-      room_players = clients_in_lobby.each {|client| RoomPlayer.new(client)}
-      room = GameRoom.new(room_players)
-      rooms[room] = room_players.shift(3)
+      room.run
+      puts "after room.run"
     end
   end
 end

@@ -14,8 +14,8 @@ describe 'CardDeck' do
   #WHICH ONE IS NECESSARY OR ARE BOTH?
   describe '#shuffle' do 
     it 'shuffles the deck of cards' do
-      game1 = GoFishGame.new("Bill")
-      game2 = GoFishGame.new("Louis")
+      game1 = GoFishGame.new(["Bill"])
+      game2 = GoFishGame.new(["Louis"])
       game1.start
       expect(game1.card_deck).to_not eq(game2.card_deck)
     end
@@ -25,7 +25,7 @@ describe 'CardDeck' do
     it 'deals a single card to a given players hand' do
       card_deck = CardDeck.new
       card_deck.shuffle
-      player = GoFishPlayer.new("Bill")
+      player = GoFishPlayer.new(["Bill"])
       card = card_deck.deal
       player.add_cards_to_hand(card)
       expect(player.hand.count).to eq 1
@@ -35,7 +35,7 @@ describe 'CardDeck' do
   describe '#cards_left' do
     it 'counts the cards left in the card_deck' do
       card_deck = CardDeck.new
-      player = GoFishPlayer.new("Joey")
+      player = GoFishPlayer.new(["Joey"])
       card_deck.shuffle
       card = card_deck.deal
       expect(card_deck.cards_left).to eq 51

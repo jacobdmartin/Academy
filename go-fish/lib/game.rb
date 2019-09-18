@@ -4,6 +4,7 @@
 #deal cards
 
 require_relative '../lib/room'
+require_relative '../lib/room_player'
 require_relative '../lib/server'
 require_relative '../lib/playing_card'
 require_relative '../lib/player'
@@ -13,7 +14,7 @@ require 'pry'
 class GoFishGame
   attr_reader :card_deck, :players, :current_player, :game
 
-  def initialize(*players_names)
+  def initialize(players_names)
     @card_deck = CardDeck.new
     @players = players_names.map {|player_name| GoFishPlayer.new(player_name)}
     @current_player = @players[0]
