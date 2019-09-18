@@ -45,6 +45,8 @@ describe 'GameResults' do
       game.players[1].add_cards_to_hand(five_of_spades, queen_of_hearts)
       game.inquire_for_card(game.players[0], game.players[1], "8")
       expect(result.turn_outcomes(game.players[0], game.players[1], "8")).to eq result.player_results[:inquired_player_no_rank_message]
+      expect(game.players[0].hand.count).to eq 4
+      expect(game.players[1].hand.count).to eq 2
     end
 
     # it 'returns a message if a given player gets to go again because they fished what they asked for' do

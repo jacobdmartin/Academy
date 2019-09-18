@@ -2,23 +2,51 @@ require 'pry'
 
 describe 'GoFishServer' do
 
+  class MockGoFishClient
+    attr_reader :socket
+    attr_reader :output
+  
+    def initialize
+      @socket = TCPSocket.new('localhost', port_number)
+    end
+  
+    def provide_input(text)
+      socket.puts(text)
+    end
+  
+    def capture_output(delay=0.1)
+      sleep(delay)
+      output = socket.read_nonblock(1000) # not gets which blocks
+    rescue IO::WaitReadable
+      output = ""
+    end
+  
+    def close
+      socket.close if @socket
+    end
+
+    def port_number
+      3336
+    end
+  end
+
   def create_two_clients 
-    @client1 = MockGoFishClient.new(@server.port_number)
+    @client1 = MockGoFishClient.new()
     @client1.provide_input("Jake")
     @server.accept_new_client
-    @client2 = MockGoFishClient.new(@server.port_number)
+    @client2 = MockGoFishClient.new()
     @client1.provide_input("Josh")
     @server.accept_new_client
   end
 
   def create_three_clients 
-    @client1 = MockGoFishClient.new(@server.port_number)
+    @client1 = MockGoFishClient.new()
     @client1.provide_input("Jake")
     @server.accept_new_client
-    @client2 = MockGoFishClient.new(@server.port_number)
+    @client2 = MockGoFishClient.new()
     @client1.provide_input("Josh")
     @server.accept_new_client
-    @client3 = MockGoFishClient.new(@server.port_number)
+    @client3 = MockGoFishClient.new()
     @client1.provide_input("Daniel")
     @server.accept_new_client
   end
@@ -36,7 +64,7 @@ describe 'GoFishServer' do
   end
 
   it "is not listening on a port before it is started"  do
-    expect {MockGoFishClient.new(@server.port_number)}.to raise_error(Errno::ECONNREFUSED)
+    expect {MockGoFishClient.new()}.to raise_error(Errno::ECONNREFUSED)
   end
 
   describe '#start' do

@@ -46,9 +46,7 @@ class GameResult
     end
   end
 
-  def return_cards
-    
-  end
+  private
 
   def player_takes_card_from_player(inquiring_player, inquired_player, rank)
 

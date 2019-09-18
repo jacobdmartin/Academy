@@ -3,8 +3,6 @@
 #shuffle cards
 #deal cards
 
-require_relative '../lib/room'
-require_relative '../lib/room_player'
 require_relative '../lib/server'
 require_relative '../lib/playing_card'
 require_relative '../lib/player'
@@ -12,11 +10,11 @@ require_relative '../lib/results'
 require 'pry'
 
 class GoFishGame
-  attr_reader :card_deck, :players, :current_player, :game
+  attr_reader :card_deck, :players, :current_player, :game, :clients_names
 
-  def initialize(*players_names)
+  def initialize(*clients_names)
     @card_deck = CardDeck.new
-    @players = players_names.map {|player_name| GoFishPlayer.new(player_name)}
+    @players = clients_names.map {|player_name| GoFishPlayer.new(player_name)}
     @current_player = @players[0]
   end
 
@@ -36,6 +34,15 @@ class GoFishGame
     deal_count.times do 
       players.each {|player| player.add_cards_to_hand(card_deck.deal)}
     end
+  end
+
+  def play_game
+    
+  end
+
+  def check_client_input(input)
+    expected_input = "(\w+)\s(from)\s([a-zA-Z]+)"
+    input == expected_input ? true : false
   end
 
   def go_fish(player)

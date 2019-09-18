@@ -89,51 +89,28 @@ describe 'GoFishGame' do
     end
   end
 
-  describe '#inquire_for_card' do
-    # it 'takes card from a given player and gives it to another given player' do
-    #   initialize_new_game
-    #   initialize_three_cards
-    #   add_initialized_cards_to_both_hands
-    #   result = @game.inquire_for_card(@game.players[1], @game.players[0], "Jack")
-    #   expect(@game.players[0].hand.count).to eq 1
-    #   expect(@game.players[1].hand.count).to eq 2
-    #   expect(result.return_cards).to eq 2 
-    # end
+  describe '#client_input' do
+    it 'tells a given player to go again because they didn\'t provide the correct input' do
+      initialize_new_game
+      expect(@game.check_client_input).to eq false
+    end
+  end
 
-    it 'a given player tells a player to go fish because they don\'t have a given rank' do
+  describe '#advance_player' do
+    it 'goes to the next players turn' do
+      game = GoFishGame.new("Billy", "Jamie")
+      game.start
+      expect(game.advance_player).to eq(game.players[1])
+    end
+  end
+
+  describe '#fish_rank_asked_for' do
+    it 'tells a given player to take another turn because they fished what they asked for' do
       initialize_new_game
       initialize_three_cards
       add_initialized_cards_to_both_hands
-      @game.inquire_for_card(@game.players[0], @game.players[1], "9")
-      expect(@game.players[0].hand.count).to eq 3
-      expect(@game.players[1].hand.count).to eq 1
-    end
-
-    it 'a given player goes fishing and adds the card to their hand' do
-      initialize_new_game
-      initialize_three_cards
-      add_initialized_cards_to_both_hands
-      @game.inquire_for_card(@game.players[0], @game.players[1], "9")
-      expect(@game.players[0].hand.count).to eq 3
-      expect(@game.players[1].hand.count).to eq 1
-    end
-
-    describe '#advance_player' do
-      it 'goes to the next players turn' do
-        game = GoFishGame.new("Billy", "Jamie")
-        game.start
-        expect(game.advance_player).to eq(game.players[1])
-      end
-    end
-
-    describe '#fish_rank_asked_for' do
-      it 'tells a given player to take another turn because they fished what they asked for' do
-        initialize_new_game
-        initialize_three_cards
-        add_initialized_cards_to_both_hands
-        @game.inquire_for_card(@game.players[0], @game.players[1], "Ace")
-        expect(@game.card_deck.deal.rank).to eq("Ace")
-      end
+      @game.inquire_for_card(@game.players[0], @game.players[1], "Ace")
+      expect(@game.card_deck.deal.rank).to eq("Ace")
     end
   end
 end
