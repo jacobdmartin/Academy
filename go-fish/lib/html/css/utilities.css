@@ -1,0 +1,35 @@
+.flex {
+  display: flex;
+}
+
+.flex_row {
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex_column {
+  flex-direction: column;
+}
+
+body {
+  width: 375px;
+  margin: auto;
+  font: 12pt Helvetica, sans-serif;
+  border: 3px black solid;
+  /* background-color: #008042; */
+  background-color: #ffffff
+}
+
+button {
+  border-radius: 5px;
+  width: 300px;
+  align-self: center;
+  height: 60px;
+  margin: auto;
+  position: fixed;
+  background-color: black;
+}
+
+container {
+  display: flex;
+}
