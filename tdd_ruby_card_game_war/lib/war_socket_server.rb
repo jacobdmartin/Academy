@@ -62,9 +62,6 @@ class WarSocketServer
       end
     end
   end
-    # rescue
-    #   puts "Stopping server"
-    #   @server.stop
 
   def ready_message(game)
     clients = connected_games[game]
