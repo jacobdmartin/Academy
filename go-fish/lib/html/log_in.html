@@ -1,30 +1,30 @@
 <html>
   <head>
-    <meta name = "viewport" content = "width = device-width">
-    <link href="css/log_in.css" type="text/css" rel="stylesheet"/>
-    <link rel="apple-touch-icon" href="/custom_icon.png"/>
-    <link rel="apple-touch-icon-precomposed" href="/custom_icon.png"/> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/utilities.css" type="text/css" rel="stylesheet"/>
+    <link href="css/log_in.css" type="text/css" rel="stylesheet"/> 
     <title>Go Fish Phone App</title>
   </head>
 
 <body>
-  <div class="container">
-    <div class="log_in_header">
-      <p class="log_in_text">Log In</p>
+  <container>
+    <section class="flex flex_column log_in_header">
+      <p class="flex flex_row log_in_text">Log In</p>
     </div>
-    <div class="img">
+    <div class="flex flex_row img">
       <img class="card_picture" src="./img/TII110-waterproof-playing-cards-rtm-brandedImageMain-515.jpg" alt="A Picture of Four Aces">
     </div>
-    <div class="welcome">
+    <div class="flex flex_row welcome">
       <p>Welcome to Go Fish</p>
     </div>
-    <div class="username_box">
+    <div class="btn username_box">
       <!-- <img class="search_icon" src="./img/698627-icon-111-search-512.png"> -->
       <p class="username_text">Enter Your Username</p>
     </div>
-    <div class="log_in_button">
-      <p class="log_in_button_text">Log In</p>
-    </div>
-  </div>
+    <form class="btn log_in" action="./lobby.html">
+      <button type="submit" class="log_in_button_text">Log In</button>
+    </form>
+    </section>
+  </container>
 </body>
 </html>
