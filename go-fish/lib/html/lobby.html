@@ -3,25 +3,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/utilities.css" type="text/css" rel="stylesheet"/>
     <link href="css/lobby.css" type="text/css" rel="stylesheet"/>
-    <link href="css/log_in.css" type="text/css" rel="stylesheet"/>
     <title>Lobby</title>
   </head>
-
+  <script src="./js/lobby.js"></script>
 <body>
-  <container>
-      <section class="flex flex_column log_in_header">
-          <p class="flex flex_row log_in_text">Lobby</p>
-        </div>
-        <div class="flex flex_column room">
-          <p>Room 1</p>
-        </div>
-        <div class="flex flex_column btn username_box">
-          <!-- <img class="search_icon" src="./img/698627-icon-111-search-512.png"> -->
-          <p class="username_text">Enter Your Username</p>
-        </div>
-        <form class="btn log_in" action="./lobby.html">
-          <button type="submit" class="log_in_button_text" value="Log In"></button>
-        </form>
-      </section>
+  <header class="flex log_in_header">
+      <p class="flex flex_row header_text">Lobby</p>
+  </header>
+
+  <div class="flex_column">
+    <div class="room">
+      <p class="room_text">Room 1</p>
+    </div>
+    <div class="flex_row">
+      <form action="./room.html">
+        <button class="room-btn join header_text">Join</button>
+      </form>
+      <form action="./spectate-room.html">
+        <button class="room-btn spectate header_text">Spectate</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="flex_column">
+    <div class="room">
+      <p class="room_text">Room 2</p>
+    </div>
+    <div class="flex_row">
+      <form action="./room.html">
+        <button class="room-btn join header_text">Join</button>
+      </form>
+      <form action="./spectate-room.html">
+        <button class="room-btn spectate header_text">Spectate</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="flex_column">
+    <div class="room">
+      <p class="room_text">Room 3</p>
+    </div>
+    <div class="flex_row">
+      <form action="./room.html">
+        <button class="room-btn join header_text">Join</button>
+      </form>
+      <form action="./spectate-room.html">
+        <button class="room-btn spectate header_text">Spectate</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="flex_column">
+    <div class="room">
+      <p class="room_text">Room 4</p>
+    </div>
+    <div class="flex_row">
+      <form action="./room.html">
+        <button class="room-btn join header_text">Join</button>
+      </form>
+      <form action="./spectate-room.html">
+        <button class="room-btn spectate header_text">Spectate</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="flex_column">
+    <div class="room">
+      <p class="room_text">Room 5</p>
+    </div>
+    <div class="flex_row">
+      <form action="./room.html">
+        <button class="room-btn join header_text">Join</button>
+      </form>
+      <form action="./spectate-room.html">
+        <button class="room-btn spectate header_text">Spectate</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="flex_column">
+    <div class="room">
+      <p class="room_text">Room 6</p>
+    </div>
+    <div class="flex_row">
+      <form action="./room.html">
+        <button class="room-btn join header_text">Join</button>
+      </form>
+      <form action="./spectate-room.html">
+        <button class="room-btn spectate header_text">Spectate</button>
+      </form>
+    </div>
+  </div>
+
+  <section class="flex lobby-footer">
+    <form action="./room.html">
+      <button type="submit" class="btn header_text">Create A Room</button>
+    </form>
+  </section>
 </body>
 </html>

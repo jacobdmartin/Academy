@@ -1,0 +1,101 @@
+.game-header {
+  background-color: #553d03;
+  color: white;
+  height: 50px;
+}
+
+.game-footer {
+  background-color: #553d03;
+  color: white;
+  height: 80px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+body {
+  background-color: #008042;
+}
+
+.player-text {
+  color: black;
+  font-size: 19px;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-text:hover .dropdown{background-color: #d8d8d8}
+
+.card-box {
+  margin-top: 30px;
+}
+
+.card-img {
+  border-radius: 7px;
+  width: 50%;
+  height: 50%;
+  max-width: 237px;
+  margin: auto;
+}
+
+.dropbtn {
+  width: 170px;
+  border-radius: 5px;
+  align-self: left;
+  height: 50px;
+  margin-top: 15px;
+  position: relative;
+  background-color: white;
+  align-content: center;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content p {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.hand-button {
+  width: 130px;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 19px;
+}
+
+.book-button {
+  
+  width: 130px;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 19px;
+}
+
+.player-list {
+  width: 50%;
+  order: 0;
+}
+
+.taking_turn {
+  width: 50%;
+  order: 1;
+  font-size: 20px;
+  color: white;
+}

@@ -8,9 +8,9 @@
 
 .flex_end {justify-content: flex-end;}
 
-.flex_around {justify-content: space-around;}
+.justify_around {justify-content: space-around;}
 
-.flex_between {justify-content: space-between}
+.justify_between {justify-content: space-between}
 
 .justify_center {justify-content: center;}
 
@@ -18,25 +18,40 @@
 
 .justify_left {justify-content: left;}
 
+.items_stretch {align-items: stretch;}
+
 body {
+  height: 100%-80px;
   width: auto;
   margin: auto;
   font: 12pt Helvetica, sans-serif;
-  background-color: #ffffff
+  background-color: white;
+  overflow: scroll;
 }
 
 .btn {
-  border-radius: 5px;
   width: 300px;
+  border-radius: 5px;
   align-self: center;
   height: 50px;
+  margin-top: 15px;
   margin: auto;
-  position: fixed;
+  position: relative;
   background-color: black;
+}
+
+.btn-small {
+  width: 100px;
+  border-radius: 5px;
+  align-self: center;
+  height: 50px;
+  margin-top: 15px;
+  position: relative;
 }
 
 .log_in {
   position: relative;
+  margin-top: 25px;
   top: 100%;
   background-color: black;
 }
@@ -46,8 +61,30 @@ body {
   width: 100%;
   height: 80px;
   background-color: black;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+}
+
+.header_text {
+  color: white;
+  position: relative;
+  justify-content: center;
+  font-size: 20px;
 }
 
 container {
   display: flex;
+}
+
+.room-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+
+.page {
+  height: (100% - 80px)
+  overflow: scroll;
 }

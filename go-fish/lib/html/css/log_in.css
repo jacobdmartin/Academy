@@ -4,7 +4,7 @@
   background-color: black;
 }
 
-.log_in_text {
+.header_text {
   color: white;
   position: relative;
   justify-content: center;
@@ -12,7 +12,7 @@
 }
 
 img {
-  max-width: 310px;
+  max-width: 320px;
   position: relative;
   margin: auto;
   top: 25%;
@@ -22,25 +22,22 @@ img {
   position: relative;
   top: 70%;
   margin: auto;
+  margin-top: 45px;
   color: black;
   font-size: 24px;
   font-weight: bold;
 }
 
 .username_box {
-  /* text-align: center; */
   position: relative;
-  top: 90%;
   background-color: #D6D6D6;
+  margin-top: 65px;
 }
 
 .username_text {
   position: relative;
   margin: auto;
-  height: 50px;
-  font-size: 20px;
-  left: 50px;
-  top: 15px;
+  padding: 5px;
 }
 
 .log_in_button_text {
