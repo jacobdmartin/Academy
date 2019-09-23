@@ -1,11 +1,6 @@
-.log_in_header {
-  width: 100%;
-  height: 80px;
-  background-color: black;
-}
-
+/* http://mountainairespringwater.com/style/bg.jpg */
 .header_text {
-  color: white;
+  color: #ffda55;
   position: relative;
   justify-content: center;
   font-size: 20px;
@@ -16,6 +11,7 @@ img {
   position: relative;
   margin: auto;
   top: 25%;
+  box-shadow: 10px 10px 5px rgb(34, 34, 34);
 }
 
 .welcome {
@@ -24,32 +20,34 @@ img {
   margin: auto;
   margin-top: 45px;
   color: black;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
 }
 
 .username_box {
   position: relative;
-  background-color: #D6D6D6;
+  background-color: #ffda55;
   margin-top: 65px;
+  box-shadow: 3px 3px 4px rgb(34, 34, 34)
+}
+
+.username_form {
+  margin-top: 50px;
 }
 
 .username_text {
   position: relative;
   margin: auto;
   padding: 5px;
+  font-size: 20px;
 }
 
 .log_in_button_text {
   color: white;
   margin: auto;
-  position: relative;
   text-align: center;
+  bottom: 0;
   height: 50px;
   left: 110px;
   font-size: 20px;
-}
-
-.mobile_hidden {
-  display: none;
 }

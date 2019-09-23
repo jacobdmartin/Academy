@@ -37,6 +37,7 @@ body {
   height: 50%;
   max-width: 237px;
   margin: auto;
+  box-shadow: 3px 3px 4px rgb(34, 34, 34)
 }
 
 .dropbtn {
@@ -48,6 +49,7 @@ body {
   position: relative;
   background-color: white;
   align-content: center;
+  box-shadow: 3px 3px 4px rgb(34, 34, 34)
 }
 
 .dropdown {
@@ -78,6 +80,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   margin: 19px;
+  box-shadow: 3px 3px 4px rgb(34, 34, 34)
 }
 
 .book-button {
@@ -86,6 +89,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   margin: 19px;
+  box-shadow: 3px 3px 4px rgb(34, 34, 34)
 }
 
 .player-list {

@@ -3,14 +3,10 @@
   background-color: #008042;
   width: 40%;
   height: 120px;
-  border: 2px black solid;
   align-items: center;
   justify-content: center;
   font-size: 20px;
-}
-
-.room_text {
-  font-color: orange;
+  box-shadow: 3px 3px 4px rgb(34, 34, 34)
 }
 
 .room-btn {
@@ -25,12 +21,15 @@
   color: black;
   background-color: #ffda55;
   margin-top: 0;
+  box-shadow: 3px 3px 4px rgb(34, 34, 34)
 }
 
 .join {
   color:white;
   background-color: #553d03;
   margin-top: 0;
+  margin-bottom: 0;
+  box-shadow: 3px 3px 4px rgb(34, 34, 34)
 }
 
 .lobby-footer {
@@ -39,3 +38,13 @@
   bottom: 0;
   justify-content: center;
 }
+
+/* .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky + .content {
+  padding-top: 102px;
+} */
